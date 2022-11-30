@@ -7,6 +7,12 @@ const getAll = async (email) => {
   return data;
 };
 
+const create = async ({ displayName, email, password, image }) => {
+  const user = await User.create({ displayName, email, password, image });
+  return user;
+};
+
 module.exports = {
   getAll,
+  create,
 };
