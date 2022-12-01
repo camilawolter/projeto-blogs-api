@@ -42,7 +42,13 @@ const create = async (req, res) => {
   }
 };
 
+const getAllUser = async (req, res) => {
+  const books = await usersService.getAllUser();
+  res.status(200).json(books);
+};
+
 module.exports = {
   login,
   create,
+  getAllUser,
 };
