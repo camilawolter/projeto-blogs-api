@@ -1,7 +1,7 @@
 require('dotenv').config();
 const app = require('./app');
 const usersController = require('./controllers/usersController');
-const categoriesController = require('./controllers/categoresController');
+const categoriesController = require('./controllers/categoriesController');
 const validateUser = require('./middlewares/validateUser');
 const validateJWT = require('./auth/validateJWT');
 
