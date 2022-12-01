@@ -19,8 +19,17 @@ const getAllUser = async () => {
   return users;
 };
 
+const getById = async (id) => {
+  const [users] = await User.findAll({
+    where: { id },
+    attributes: { exclude: ['password'] },
+  });
+  return users;
+};
+
 module.exports = {
   getAll,
   create,
   getAllUser,
+  getById,
 };
