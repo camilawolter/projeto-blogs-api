@@ -13,6 +13,16 @@ const create = async (req, res) => {
   }
 };
 
+const getAll = async (req, res) => {
+  try {
+    const cagetories = await categoriesService.getAll();
+    return res.status(200).json(cagetories);
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
+
 module.exports = {
   create,
+  getAll,
 };
