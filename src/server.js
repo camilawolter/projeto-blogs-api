@@ -21,5 +21,6 @@ app.get('/user/:id', validateJWT, usersController.getById);
 app.post('/categories', validateJWT, categoriesController.create);
 app.get('/categories', validateJWT, categoriesController.getAll);
 app.get('/post', validateJWT, postController.getAll);
+app.get('/post/:id', validateJWT, postController.getById);
 
 app.listen(port, () => console.log('ouvindo porta', port));
