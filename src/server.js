@@ -2,6 +2,7 @@ require('dotenv').config();
 const app = require('./app');
 const usersController = require('./controllers/usersController');
 const categoriesController = require('./controllers/categoriesController');
+const postController = require('./controllers/postController');
 const validateUser = require('./middlewares/validateUser');
 const validateJWT = require('./auth/validateJWT');
 
@@ -19,5 +20,6 @@ app.get('/user', validateJWT, usersController.getAllUser);
 app.get('/user/:id', validateJWT, usersController.getById);
 app.post('/categories', validateJWT, categoriesController.create);
 app.get('/categories', validateJWT, categoriesController.getAll);
+app.get('/post', validateJWT, postController.getAll);
 
 app.listen(port, () => console.log('ouvindo porta', port));
