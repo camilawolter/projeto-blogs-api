@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { BlogPost, User, Category, PostCategory, sequelize } = require('../models');
 
 const getAll = async () => {
@@ -9,6 +10,19 @@ const getAll = async () => {
   });
   return post;
 };
+
+const getAllSearchTerm = async (term) => BlogPost.findAll({
+  where: {
+    [Op.or]: [
+      { title: { [Op.like]: `%${term}%` } },
+      { content: { [Op.like]: `%${term}%` } },
+    ],
+  },
+  include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } },
+  ],
+});
 
 const getById = async (id) => {
   const [post] = await BlogPost.findAll({
@@ -30,7 +44,7 @@ const create = async (post, userId) => {
     const postId = newPost.dataValues.id;
     console.log(newPost);
     const postCategory = categoryIds.map(async (categoryId) => PostCategory
-    .create({ postId, categoryId }, { transaction: t }));
+      .create({ postId, categoryId }, { transaction: t }));
     await Promise.all(postCategory);
     return newPost;
   });
@@ -58,4 +72,5 @@ module.exports = {
   create,
   update,
   remove,
+  getAllSearchTerm,
 };
