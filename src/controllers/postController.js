@@ -14,7 +14,15 @@ const getById = async (req, res) => {
   res.status(200).json(post);
 };
 
+const create = async (req, res) => {
+  const { user } = req.user.data;
+  console.log('REQ', req.user.data);
+  const newPost = await postService.create(req.body, user);
+  return res.status(201).json(newPost);
+};
+
 module.exports = {
   getAll,
   getById,
+  create,
 };
