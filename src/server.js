@@ -19,6 +19,7 @@ app.post('/login', usersController.login);
 app.post('/user', validateUser, usersController.create);
 app.get('/user', validateJWT, usersController.getAllUser);
 app.get('/user/:id', validateJWT, usersController.getById);
+app.delete('/user/me', validateJWT, usersController.remove);
 app.post('/categories', validateJWT, categoriesController.create);
 app.get('/categories', validateJWT, categoriesController.getAll);
 app.get('/post', validateJWT, postController.getAll);
