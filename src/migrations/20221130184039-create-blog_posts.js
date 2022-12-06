@@ -16,6 +16,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       user_id: {
+        allowNull: true,
         type: Sequelize.INTEGER,
         references: {
           model: 'users',
@@ -25,11 +26,15 @@ module.exports = {
       },
       published: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
+        onUpdate: 'NO ACTION',
       },
       updated: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
+        onUpdate: new Date(),
       }
     });
 
