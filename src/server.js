@@ -26,5 +26,6 @@ app.get('/post/:id', validateJWT, postController.getById);
 app.post('/post', validateJWT, validatePost.existCategory,
   validatePost.bodyValidate, postController.create);
 app.put('/post/:id', validateJWT, validatePost.bodyUpdateValidate, postController.update);
+app.delete('/post/:id', validateJWT, postController.remove);
 
 app.listen(port, () => console.log('ouvindo porta', port));

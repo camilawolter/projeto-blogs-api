@@ -34,9 +34,22 @@ const update = async (req, res) => {
   if (updatePost) return res.status(200).json(await postService.getById(id));
 };
 
+const remove = async (req, res) => {
+  const { id } = req.params;
+  const { user } = req.user.data;
+  const existPost = await postService.getById(id);
+  if (!existPost) return res.status(404).json({ message: 'Post does not exist' });
+  if (existPost.userId !== user) {
+    return res.status(401).json({ message: 'Unauthorized user' });
+  }
+  await postService.remove(id);
+  return res.status(204).json();
+};
+
 module.exports = {
   getAll,
   getById,
   create,
   update,
+  remove,
 };
