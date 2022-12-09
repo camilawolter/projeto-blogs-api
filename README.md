@@ -4,7 +4,7 @@ Este repositório contém o projeto Blogs Api desenvolvido por [Camila Wolter](h
 
 ## Descrição 
 
-Este projeto é uma API de blog simples que permite criar, ler, atualizar e excluir postagens e categorias. E também permite registrar e fazer login de usuários. Esta API é construída com Node.js, Express.js e MySQL com Sequelize ORM. Além de possuir o padrão MSC.
+Este projeto é uma API de blog que permite criar, ler, atualizar e excluir postagens e categorias. E também permite registrar e fazer login de usuários. Esta API é construída com Node.js, Express.js e MySQL com Sequelize ORM, além de possuir o padrão MSC.
 
 Construído com:
 
