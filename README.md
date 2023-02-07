@@ -1,4 +1,4 @@
-# Project Blogs API
+# Projeto Blogs API
 
 Este repositório contém o projeto Blogs Api desenvolvido por [Camila Wolter](https://www.linkedin.com/in/camilawolter/) enquanto estudava na [Trybe](https://www.betrybe.com/) no módulo de BackEnd.
 
